@@ -121,7 +121,7 @@ cd /dspace-src/dspace
 sudo mvn -X package
 
 echo  - Coping the customized dspace.cfg to /{dspace-build}/config
-cd ~ && cd dspace-auto-install-master
+cd ~ && cd dspace-auto-install
 sudo cp dspace.cfg "/dspace-src/dspace/target/dspace-installer/config/dspace.cfg"
 
 echo  - Running ant fresh_install
