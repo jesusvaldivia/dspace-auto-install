@@ -9,9 +9,9 @@ if [ "$dist" == "Ubuntu" ]; then
     sudo locale-gen en_US en_US.UTF-8 es_PE.UTF-8
     sudo dpkg-reconfigure locales
     sudo apt-get install -y --force-yes software-properties-common python-software-properties language-pack-en build-essential
-    sudo apt-get install -y --force-yes git wget unzip mc openjdk-8-jdk maven curl ant ant-optional tomcat7 postgresql tomcat7-admin
+    sudo apt-get install -y --force-yes git wget unzip mc openjdk-8-jdk maven curl ant ant-optional tomcat7 postgresql-contrib tomcat7-admin
 else
-    sudo yum install -y git wget unzip mc openjdk-7-jdk maven curl ant ant-optional tomcat7 postgresql tomcat7-admin
+    sudo yum install -y git wget unzip mc openjdk-8-jdk maven curl ant ant-optional tomcat7 postgresql tomcat7-admin
 fi
 
 # check if user vagrant exists
@@ -60,6 +60,8 @@ echo  - Creating the dspace Postgres user
 sudo -u postgres psql "-c CREATE USER dspace WITH PASSWORD 'dspace' CREATEDB;"
 echo  - Creating the dspace database
 createdb -U dspace dspace
+# install pgcrypto extension
+sudo -u postgres psql dspace "-c CREATE EXTENSION pgcrypto"
 
 # Download DSpace
 echo Download DSpace source
@@ -124,8 +126,12 @@ sudo mvn -X package
 # cd ~ && cd dspace-auto-install
 # sudo cp dspace.cfg "/dspace-src/dspace/target/dspace-installer/config/dspace.cfg"
 
-echo  - Running ant fresh_install
+#echo - Coping the customized local.cfg to /{dspace-build}/config
 cd "/dspace-src/dspace/target/dspace-installer/"
+sudo mv local.cfg.EXAMPLE local.cfg
+
+echo  - Running ant fresh_install
+#cd "/dspace-src/dspace/target/dspace-installer/"
 sudo ant fresh_install
 
 # Create an admin user
