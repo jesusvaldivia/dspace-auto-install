@@ -101,12 +101,12 @@ rm -rf "DSpace-master"
 echo Building DSpace
 
 # Change build.properties
-echo  - Copying build.properties to /dspace-src/build.properties
-sudo cp -f build.properties /dspace-src/build.properties
+# echo  - Copying build.properties to /dspace-src/build.properties
+# sudo cp -f build.properties /dspace-src/build.properties
 
 # Copy dspace.cfg
-echo  - Copying dspace.cfg to /dspace-src/dspace.cfg
-sudo cp -f dspace.cfg /dspace-src/dspace.cfg
+# echo  - Copying dspace.cfg to /dspace-src/dspace.cfg
+# sudo cp -f dspace.cfg /dspace-src/dspace.cfg
 
 # Copy ROOT
 echo  - Copying ROOT to /dspace-src/ROOT
@@ -120,9 +120,9 @@ echo  - Running 'mvn package' on /dspace-src
 cd /dspace-src/dspace
 sudo mvn -X package
 
-echo  - Coping the customized dspace.cfg to /{dspace-build}/config
-cd ~ && cd dspace-auto-install
-sudo cp dspace.cfg "/dspace-src/dspace/target/dspace-installer/config/dspace.cfg"
+# echo  - Coping the customized dspace.cfg to /{dspace-build}/config
+# cd ~ && cd dspace-auto-install
+# sudo cp dspace.cfg "/dspace-src/dspace/target/dspace-installer/config/dspace.cfg"
 
 echo  - Running ant fresh_install
 cd "/dspace-src/dspace/target/dspace-installer/"
