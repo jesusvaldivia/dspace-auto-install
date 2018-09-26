@@ -128,7 +128,7 @@ sudo mvn -X package
 
 #echo - Coping the customized local.cfg to /{dspace-build}/config
 cd "/dspace-src/dspace/target/dspace-installer/"
-sudo mv local.cfg.EXAMPLE local.cfg
+sudo mv config/local.cfg.EXAMPLE config/local.cfg
 
 echo  - Running ant fresh_install
 #cd "/dspace-src/dspace/target/dspace-installer/"
