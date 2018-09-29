@@ -44,7 +44,7 @@ sudo chown dspace /dspace
 
 # Stop tomcat
 echo Stopping tomcat
-sudo service tomcmvat7 stop
+sudo service tomcat7 stop
 
 # Restart postgresql
 echo Restarting service postgresql
