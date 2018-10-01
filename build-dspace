@@ -20,7 +20,7 @@ vagrant_user_exists=false
 
 # se estiver no vagrant vai para o diretório do auto install
 #if $vagrant_user_exists; then
-    cd dspace-auto-install
+#    cd dspace-auto-install
 #fi
 
 #copiar o arquivo do tomcat
