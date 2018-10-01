@@ -15,19 +15,19 @@ else
 fi
 
 # check if user vagrant exists
-vagrant_user_exists=false
-getent passwd vagrant >/dev/null 2>&1 && vagrant_user_exists=true
+#vagrant_user_exists=false
+#getent passwd vagrant >/dev/null 2>&1 && vagrant_user_exists=true
 
 # se estiver no vagrant vai para o diretório do auto install
-if $vagrant_user_exists; then
-    cd dspace-auto-install
-fi
+#if $vagrant_user_exists; then
+#    cd dspace-auto-install
+#fi
 
 #copiar o arquivo do tomcat
-sudo cp tomcat7 /etc/default/tomcat7
+#sudo cp tomcat7 /etc/default/tomcat7
 
-echo Copying LiveCD ROOT webapp to tomcat
-sudo cp -R ROOT /var/lib/tomcat7/webapps/ROOT
+#echo Copying LiveCD ROOT webapp to tomcat
+#sudo cp -R ROOT /var/lib/tomcat7/webapps/ROOT
 
 #copiar o arquivo do postgresql
 sudo cp pg_hba.conf /etc/postgresql/*/main/pg_hba.conf
@@ -77,21 +77,21 @@ echo  - Removing file downloaded
 sudo rm "master.zip"
 
 # Check user dspace
-dspace_user_exists=false
-getent passwd dspace >/dev/null 2>&1 && dspace_user_exists=true
+#dspace_user_exists=false
+#getent passwd dspace >/dev/null 2>&1 && dspace_user_exists=true
 
 # Make the relevant directories
 echo  - Making /dspace-src
 sudo rm -rf /dspace-src/*
 sudo mkdir /dspace-src
 
-if $vagrant_user_exists; then
-    sudo chown vagrant /dspace-src
-fi
+#if $vagrant_user_exists; then
+#    sudo chown vagrant /dspace-src
+#fi
 
-if $dspace_user_exists; then
+#if $dspace_user_exists; then
     sudo chown dspace /dspace-src
-fi
+#fi
 
 echo  - "Copying DSpace-master to /dspace-src"
 sudo cp -R "DSpace-dspace-$VERSION_DSPACE/"* /dspace-src
@@ -111,8 +111,8 @@ echo Building DSpace
 # sudo cp -f dspace.cfg /dspace-src/dspace.cfg
 
 # Copy ROOT
-echo  - Copying ROOT to /dspace-src/ROOT
-sudo cp -R ROOT /dspace-src/ROOT
+#echo  - Copying ROOT to /dspace-src/ROOT
+#sudo cp -R ROOT /dspace-src/ROOT
 
 # Set MAVEN_OPTS with 1024M memory
 echo  - Set MAVEN_OPTS with 1024M memory
