@@ -15,16 +15,16 @@ else
 fi
 
 # check if user vagrant exists
-#vagrant_user_exists=false
+vagrant_user_exists=false
 #getent passwd vagrant >/dev/null 2>&1 && vagrant_user_exists=true
 
 # se estiver no vagrant vai para o diretório do auto install
 #if $vagrant_user_exists; then
-#    cd dspace-auto-install
+    cd dspace-auto-install
 #fi
 
 #copiar o arquivo do tomcat
-#sudo cp tomcat7 /etc/default/tomcat7
+sudo cp tomcat7 /etc/default/tomcat7
 
 #echo Copying LiveCD ROOT webapp to tomcat
 #sudo cp -R ROOT /var/lib/tomcat7/webapps/ROOT
@@ -156,7 +156,7 @@ sudo ln -s /dspace/webapps/xmlui /var/lib/tomcat7/webapps/xmlui
 # Start tomcat
 echo Starting tomcat
 #if $vagrant_user_exists; then
-    sudo usermod -a -G vagrant tomcat7
+#    sudo usermod -a -G vagrant tomcat7
 #fi
 sudo chown tomcat7:tomcat7 /dspace -R
 sudo service tomcat7 restart
