@@ -155,9 +155,9 @@ sudo ln -s /dspace/webapps/xmlui /var/lib/tomcat7/webapps/xmlui
 
 # Start tomcat
 echo Starting tomcat
-if $vagrant_user_exists; then
+#if $vagrant_user_exists; then
     sudo usermod -a -G vagrant tomcat7
-fi
+#fi
 sudo chown tomcat7:tomcat7 /dspace -R
 sudo service tomcat7 restart
 
